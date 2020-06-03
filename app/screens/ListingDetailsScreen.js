@@ -1,47 +1,49 @@
 import React from "react";
-import { View, StyleSheet, Image, Text } from "react-native";
-import Card from "../components/Card";
-import colors from "../config/colors";
-import ListItem from "../components/ListItem";
+import { View, Image, StyleSheet } from "react-native";
 
-function ListingDetailsScreen() {
+import colors from "../config/colors";
+import ListItem from "../components/lists/ListItem";
+import Text from "../components/Text";
+
+function ListingDetailsScreen(props) {
   return (
-    <View style={styles.container}>
+    <View>
       <Image style={styles.image} source={require("../assets/jacket.jpg")} />
-      <View style={styles.textWrapper}>
-        <Text style={styles.title}>Red Jacket for sales!</Text>
-        <Text style={styles.subTitle}>100$</Text>
+      <View style={styles.detailsContainer}>
+        <Text style={styles.title}>Red jacket for sale</Text>
+        <Text style={styles.price}>$100</Text>
+        <View style={styles.userContainer}>
+          <ListItem
+            image={require("../assets/mosh.jpg")}
+            title="Mosh Hamedani"
+            subTitle="5 Listings"
+          />
+        </View>
       </View>
-      <ListItem
-        image={require("../assets/portrait.jpg")}
-        title="Nacira Bogenschneider"
-        subTitle="23 Listings"
-      />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "lightgrey",
+  detailsContainer: {
+    padding: 20,
   },
   image: {
     width: "100%",
     height: 300,
   },
-  textWrapper: {
-    padding: 20,
+  price: {
+    color: colors.secondary,
+    fontWeight: "bold",
+    fontSize: 20,
+    marginVertical: 10,
   },
   title: {
     fontSize: 24,
     fontWeight: "500",
   },
-  subTitle: {
-    fontSize: 20,
-    fontWeight: "bold",
-    color: colors.secondary,
-    marginVertical: 10,
+  userContainer: {
+    marginVertical: 40,
   },
 });
 

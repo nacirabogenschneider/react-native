@@ -1,25 +1,22 @@
 import React from "react";
-import { View, StyleSheet, Image, onPress } from "react-native";
+import { View, StyleSheet, Image } from "react-native";
 
-import AppText from "./AppText";
+import Text from "./Text";
 import colors from "../config/colors";
-import { TouchableHighlight } from "react-native-gesture-handler";
 
 function Card({ title, subTitle, image }) {
   return (
-    <TouchableHighlight
-      activeOpacity={0.6}
-      underlayColor={colors.lightgrey}
-      onPress={onPress}
-    >
-      <View style={styles.card}>
-        <Image style={styles.image} source={image} />
-        <View style={styles.detailsContainer}>
-          <AppText style={styles.title}>{title}</AppText>
-          <AppText style={styles.subTitle}>{subTitle}</AppText>
-        </View>
+    <View style={styles.card}>
+      <Image style={styles.image} source={image} />
+      <View style={styles.detailsContainer}>
+        <Text style={styles.title} numberOfLines={1}>
+          {title}
+        </Text>
+        <Text style={styles.subTitle} numberOfLines={2}>
+          {subTitle}
+        </Text>
       </View>
-    </TouchableHighlight>
+    </View>
   );
 }
 
@@ -29,8 +26,6 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     marginBottom: 20,
     overflow: "hidden",
-    borderColor: colors.lightgrey,
-    borderWidth: 0.5,
   },
   detailsContainer: {
     padding: 20,

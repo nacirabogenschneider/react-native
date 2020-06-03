@@ -1,74 +1,51 @@
 import React from "react";
-import { StyleSheet, Text, View, ImageBackground, Image } from "react-native";
+import { ImageBackground, StyleSheet, View, Image, Text } from "react-native";
 
-import image from "../assets/background.jpg";
-import colors from "../config/colors";
-import AppButton from "../components/AppButton";
+import Button from "../components/Button";
 
-function WelcomeScreen() {
+function WelcomeScreen(props) {
   return (
     <ImageBackground
       blurRadius={10}
-      source={image}
-      style={styles.backgroundImage}
+      style={styles.background}
+      source={require("../assets/background.jpg")}
     >
-      <View style={styles.container}>
-        <View
-          style={{
-            width: "100%",
-            position: "absolute",
-            top: 100,
-            justifyContent: "flex-start",
-            alignItems: "center",
-            alignSelf: "center",
-          }}
-        >
-          <Image
-            style={styles.tinyLogo}
-            source={require("../assets/logo-red.png")}
-          ></Image>
-          <Text style={styles.tagLine}>Sell what you don't need.</Text>
-        </View>
-        <AppButton
-          color={colors.primary}
-          title="login"
-          onPress={() => console.log("Button 1 pressed")}
-        />
-        <AppButton
-          color={colors.secondary}
-          title="register"
-          onPress={() => console.log("Button 2 pressed")}
-        />
+      <View style={styles.logoContainer}>
+        <Image style={styles.logo} source={require("../assets/logo-red.png")} />
+        <Text style={styles.tagline}>Sell What You Don't Need</Text>
+      </View>
+      <View style={styles.buttonsContainer}>
+        <Button title="Login" />
+        <Button title="Register" color="secondary" />
       </View>
     </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  background: {
     flex: 1,
     justifyContent: "flex-end",
-  },
-  firstButton: {
-    width: "100%",
     alignItems: "center",
   },
-  secondButton: {
+  buttonsContainer: {
+    padding: 20,
     width: "100%",
-    alignItems: "center",
   },
-  tinyLogo: {
+  logo: {
     width: 100,
     height: 100,
   },
-  backgroundImage: {
-    flex: 1,
-    resizeMode: "cover",
-    justifyContent: "center",
+  logoContainer: {
+    position: "absolute",
+    top: 70,
+    alignItems: "center",
   },
-  tagLine: {
-    marginTop: 20,
-    fontSize: 18,
+  tagline: {
+    fontSize: 25,
+    fontWeight: "600",
+    paddingVertical: 20,
   },
 });
+
 export default WelcomeScreen;
