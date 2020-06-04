@@ -16,19 +16,18 @@ function AppButton({ title, onPress, color = "primary" }) {
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: colors.primary,
-    borderRadius: 25,
+    width: "100%",
+    borderRadius: 14,
     justifyContent: "center",
     alignItems: "center",
-    padding: 15,
-    width: "100%",
-    marginVertical: 10,
+    padding: 10,
+    margin: 6,
   },
   text: {
     color: colors.white,
-    fontSize: 18,
-    textTransform: "uppercase",
-    fontWeight: "bold",
+    fontSize: 16,
+    textTransform: "capitalize",
+    fontWeight: "400",
   },
 });
 
