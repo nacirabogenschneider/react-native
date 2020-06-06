@@ -9,4 +9,10 @@ export default {
   danger: "#ff5252",
   blue: "#2e4d80",
   petrol: "#186e5b",
+  banana: "#f5c938",
+  orange: "#faa02a",
+  bloodOrange: "#f75620",
+  lightBlue: "#3db1eb",
+  pink: "#f7009b",
+  lightPink: "#fab4e0",
 };
