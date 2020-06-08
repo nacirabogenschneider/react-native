@@ -6,13 +6,13 @@ import {
   TouchableHighlight,
   onPress,
   TouchableWithoutFeedback,
+  Platform,
 } from "react-native";
 
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import Text from "./Text";
 import colors from "../config/colors";
-import Icon from "./Icon";
 import SListItem from "../components/SListItem";
 
 function Card({ title, subTitle, image, icon, onBookmarkPress, onHeartPress }) {
@@ -24,9 +24,9 @@ function Card({ title, subTitle, image, icon, onBookmarkPress, onHeartPress }) {
       <View style={styles.bookmark}>
         <TouchableWithoutFeedback onPress={onBookmarkPress}>
           <MaterialCommunityIcons
-            name="bookmark"
-            color={colors.lightPink}
-            size={50}
+            name="star"
+            color={colors.lightBanana}
+            size={40}
           />
         </TouchableWithoutFeedback>
       </View>
@@ -58,11 +58,11 @@ const styles = StyleSheet.create({
     position: "absolute",
     zIndex: 100,
     right: 6,
-    top: -12,
+    top: 0,
     opacity: 0.93,
   },
   card: {
-    width: "100%",
+    width: 300,
     height: 340,
     borderRadius: 15,
     backgroundColor: colors.white,
@@ -74,7 +74,9 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.46,
     shadowRadius: 11.14,
-    elevation: 3,
+    borderWidth: Platform.OS === "android" ? 0.7 : 0,
+    borderColor: "lightgrey",
+    marginHorizontal: 12,
   },
   detailsContainer: {
     padding: 20,
@@ -106,7 +108,7 @@ const styles = StyleSheet.create({
   progress: {
     height: 5,
     width: "100%",
-    backgroundColor: colors.banana,
+    backgroundColor: colors.lightBanana,
   },
   author: {
     position: "absolute",
